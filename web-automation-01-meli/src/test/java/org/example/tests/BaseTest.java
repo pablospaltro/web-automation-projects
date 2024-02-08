@@ -7,13 +7,17 @@ import org.testng.annotations.BeforeMethod;
 import org.example.pages.HomePage;
 import org.example.pages.InventoryPage;
 import org.example.pages.SellStepOnePage;
+import org.testng.asserts.SoftAssert;
 
 public class BaseTest {
 
     protected WebDriver driver;
+
     protected HomePage homePage;
     protected InventoryPage inventoryPage;
     protected SellStepOnePage sellStepOnePage;
+
+    protected SoftAssert softAssert;
 
     @BeforeMethod
     public void setUp() {
@@ -24,6 +28,7 @@ public class BaseTest {
         homePage = new HomePage(driver, "https://www.mercadolibre.com.ar");
         inventoryPage = new InventoryPage(driver);
         sellStepOnePage = new SellStepOnePage(driver);
+        softAssert = new SoftAssert();
     }
 
     @AfterMethod
@@ -43,5 +48,9 @@ public class BaseTest {
 
     public SellStepOnePage getSellStepOnePage() {
         return sellStepOnePage;
+    }
+
+    public SoftAssert getSoftAssert(){
+        return softAssert;
     }
 }
