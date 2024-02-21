@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import org.example.actions.login.LoginActions;
+import org.example.actions.navigation.InventoryPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -13,10 +14,13 @@ public class BaseTest {
     protected WebDriver driver;
 
     protected HomePage homePage;
+    protected InventoryPage inventoryPage;
 
     protected SoftAssert softAssert;
 
-    protected LoginActions loginActions;
+    protected LoginActions login;
+
+
 
     @BeforeMethod
     public void setUp() {
@@ -25,8 +29,9 @@ public class BaseTest {
         driver = new ChromeDriver();
 
         homePage = new HomePage(driver, "https://www.saucedemo.com");
+        inventoryPage = new InventoryPage(driver);
         softAssert = new SoftAssert();
-        loginActions = new LoginActions(driver);
+        login = new LoginActions(driver);
     }
 
     @AfterMethod

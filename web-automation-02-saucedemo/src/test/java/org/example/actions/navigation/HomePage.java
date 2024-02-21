@@ -11,15 +11,21 @@ public class HomePage extends BasePage{
         this.driver.get(url);
     }
 
-    @FindBy(css="")
-    private WebElement searchInput;
+    @FindBy(css="[data-test='username']")
+    private WebElement usernameInput;
 
-    @FindBy(css="")
+    @FindBy(css="[data-test='password']")
+    private WebElement passwordInput;
+
+    @FindBy(css="[data-test='login-button]'")
     private WebElement submitBtn;
 
+    public void setUsername(String text){
+        this.usernameInput.sendKeys(text);
+    }
 
-    public void setBarText(String text){
-        this.searchInput.sendKeys(text);
+    public void setPassword(String text){
+        this.passwordInput.sendKeys(text);
     }
 
     public void clickOnSearch(){

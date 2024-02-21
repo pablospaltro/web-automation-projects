@@ -11,9 +11,9 @@ public class LoginActions {
         this.driver = driver;
     }
 
-    public void login(String username, String password) {
-        driver.findElement(By.cssSelector("[data-test='username']")).sendKeys(username);
-        driver.findElement(By.cssSelector("[data-test='password']")).sendKeys(password);
+    public void as(User user) {
+        driver.findElement(By.cssSelector("[data-test='username']")).sendKeys(user.getUsername());
+        driver.findElement(By.cssSelector("[data-test='password']")).sendKeys(user.getPassword());
         driver.findElement(By.cssSelector("[data-test='login-button']")).click();
     }
 

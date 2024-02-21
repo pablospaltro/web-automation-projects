@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import org.example.actions.login.User;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,7 +23,11 @@ public class WhenLogIn extends BaseTest {
     }
 
     @Test
-    public void whenLogIn(){}
+    public void whenLogIn(){
+        login.as(User.STANDARD_USER);
+        softAssert.assertEquals(inventoryPage.getHeading(),
+                "Products");
+    }
 
     @AfterMethod
     public void tearDown() {
