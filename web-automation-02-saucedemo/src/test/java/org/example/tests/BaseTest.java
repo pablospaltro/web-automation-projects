@@ -1,7 +1,9 @@
 package org.example.tests;
 
 import org.example.actions.login.LoginActions;
+import org.example.actions.navigation.CartPage;
 import org.example.actions.navigation.InventoryPage;
+import org.example.actions.purchase.PurchaseActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,10 +17,12 @@ public class BaseTest {
 
     protected HomePage homePage;
     protected InventoryPage inventoryPage;
+    protected CartPage cartPage;
 
     protected SoftAssert softAssert;
 
     protected LoginActions login;
+    protected PurchaseActions purchase;
 
 
 
@@ -30,8 +34,10 @@ public class BaseTest {
 
         homePage = new HomePage(driver, "https://www.saucedemo.com");
         inventoryPage = new InventoryPage(driver);
+        cartPage = new CartPage(driver);
         softAssert = new SoftAssert();
         login = new LoginActions(driver);
+        purchase = new PurchaseActions(driver);
     }
 
     @AfterMethod
