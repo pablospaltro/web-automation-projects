@@ -1,10 +1,11 @@
 package org.example.tests;
 
 import org.example.actions.navigation.HomePage;
-import org.example.actions.navigation.TecnicaturasPage;
+import org.example.actions.navigation.CarrerasPage;
 import org.example.actions.search.SearchActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
@@ -14,11 +15,12 @@ public class BaseTest {
     protected WebDriver driver;
 
     protected HomePage homePage;
-    protected TecnicaturasPage tecnicaturasPage;
+    protected CarrerasPage carrerasPage;
 
     protected SoftAssert softAssert;
 
     protected SearchActions search;
+    protected Actions actions;
 
     @BeforeMethod
     public void setUp() {
@@ -27,8 +29,10 @@ public class BaseTest {
         driver = new ChromeDriver();
 
         homePage = new HomePage(driver, "https://mdp.utn.edu.ar/");
-        tecnicaturasPage = new TecnicaturasPage(driver);
+        carrerasPage = new CarrerasPage(driver);
         softAssert = new SoftAssert();
+        search = new SearchActions(driver);
+        actions = new Actions(driver);
     }
 
     @AfterMethod
@@ -45,4 +49,5 @@ public class BaseTest {
     public SoftAssert getSoftAssert() {
         return softAssert;
     }
+
 }
