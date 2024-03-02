@@ -25,8 +25,8 @@ public class WhenLookingForCareerTest extends BaseTest{
 
     @Test
     public void whenLookingForCareer(){
-        search.forTecnicatura();
-        softAssert.assertEquals(carrerasPage.getHeading(),
+        search.forCareer();
+        softAssert.assertEquals(careerPage.getHeading(),
                 "TÉCNICO UNIVERSITARIO EN PROGRAMACIÓN");
     }
 

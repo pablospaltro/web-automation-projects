@@ -1,7 +1,8 @@
 package org.example.tests;
 
+import org.example.actions.navigation.CoursesPage;
 import org.example.actions.navigation.HomePage;
-import org.example.actions.navigation.TecnicaturaPage;
+import org.example.actions.navigation.CareerPage;
 import org.example.actions.search.SearchActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +15,8 @@ public class BaseTest {
     protected WebDriver driver;
 
     protected HomePage homePage;
-    protected TecnicaturaPage carrerasPage;
+    protected CareerPage careerPage;
+    protected CoursesPage coursesPage;
 
     protected SoftAssert softAssert;
 
@@ -27,7 +29,8 @@ public class BaseTest {
         driver = new ChromeDriver();
 
         homePage = new HomePage(driver, "https://mdp.utn.edu.ar/");
-        carrerasPage = new TecnicaturaPage(driver);
+        careerPage = new CareerPage(driver);
+        coursesPage = new CoursesPage(driver);
         softAssert = new SoftAssert();
         search = new SearchActions(driver);
     }
