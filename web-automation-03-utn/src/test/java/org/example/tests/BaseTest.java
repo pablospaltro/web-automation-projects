@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import org.example.actions.navigation.ContactPage;
 import org.example.actions.navigation.CoursesPage;
 import org.example.actions.navigation.HomePage;
 import org.example.actions.navigation.CareerPage;
@@ -17,6 +18,7 @@ public class BaseTest {
     protected HomePage homePage;
     protected CareerPage careerPage;
     protected CoursesPage coursesPage;
+    protected ContactPage contactPage;
 
     protected SoftAssert softAssert;
 
@@ -31,6 +33,7 @@ public class BaseTest {
         homePage = new HomePage(driver, "https://mdp.utn.edu.ar/");
         careerPage = new CareerPage(driver);
         coursesPage = new CoursesPage(driver);
+        contactPage = new ContactPage(driver);
         softAssert = new SoftAssert();
         search = new SearchActions(driver);
     }

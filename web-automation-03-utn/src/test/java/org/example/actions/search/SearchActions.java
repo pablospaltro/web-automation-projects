@@ -26,6 +26,8 @@ public class SearchActions {
     forCareer(): the first two 'clicks' are actually positioning the cursor
     over the element, and the third one is the real click in order to go to
     the next page (this same methodology goes for 'forCourses()').
+
+    Also: using xpath due to dynamic ids and very long class selectors
      */
     public void forCareer() {
         // position on "Carreras":
@@ -44,4 +46,8 @@ public class SearchActions {
         driver.findElement(By.xpath("//body[1]/div[1]/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/ul[1]/li[1]/a[1]")).click();
     }
 
+    public void forContact(){
+        // click on the "Contact" button
+        driver.findElement(By.xpath("//body[1]/div[1]/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[8]/a[1]")).click();
+    }
 }
